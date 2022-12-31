@@ -31,6 +31,22 @@ android {
     }
 }
 
+group = "com.github.mcxinyu"
+version = Versions.coreLibVersion
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("maven") {
+                from(components["release"])
+
+                groupId = "com.github.mcxinyu"
+                artifactId = "javascript-interface"
+            }
+        }
+    }
+}
+
 dependencies {
     compileOnly("androidx.core:core-ktx:1.9.0")
     compileOnly("androidx.appcompat:appcompat:1.5.1")

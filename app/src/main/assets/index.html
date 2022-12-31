@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample</title>
+</head>
+<style>
+    button {
+        margin-top: 32px;
+    }
+
+    center {
+        margin-top: 8px;
+    }
+
+    span {
+        color: darkgrey;
+        font-size: 14px;
+    }
+</style>
+<body>
+<center>
+    <button onclick="toast('hello world')">toast</button>
+</center>
+<center>
+    <span>Android 直接处理，不返回数据</span>
+</center>
+
+<center>
+    <button onclick="whatTimeIsIt()">what time is it</button>
+</center>
+<center>
+    <span>调用 Android 方法，并直接返回数据</span>
+</center>
+
+<center>
+    <button onclick="getWeather()">get weather</button>
+</center>
+<center>
+    <span>调用 Android 方法，并通过回调返回数据</span>
+</center>
+
+<script>
+    function toast(toast) {
+        assertJsApi()
+        window.jsapi.postMessage(
+            toJson(
+                {
+                    func: "toast",
+                    payload: toast
+                }
+            )
+        )
+    }
+
+    function whatTimeIsIt() {
+        assertJsApi()
+        let now = window.jsapi.postMessage(
+            toJson(
+                {
+                    func: "whatTimeIsIt"
+                }
+            )
+        );
+        toast(now)
+    }
+
+    function getWeather() {
+        assertJsApi()
+        window.jsapi.postMessage(
+            toJson(
+                {
+                    func: "getWeather",
+                    payload: {
+                        onSuccess: getWeatherSuccess(),
+                        onFailure: getWeatherFailure(),
+                        code: 101010100
+                    }
+                }
+            )
+        )
+    }
+
+    function getWeatherSuccess(obj) {
+        if (obj == null) return "getWeatherSuccess"
+
+        console.log(obj)
+        toast(obj)
+    }
+
+    function getWeatherFailure(obj) {
+        if (obj == null) return "getWeatherFailure"
+
+        console.log(obj)
+        toast(obj)
+    }
+
+    function toJson(obj) {
+        return JSON.stringify(obj)
+    }
+
+    function assertJsApi() {
+        if (!window.jsapi) {
+            alert("请在 jsapi 环境中运行")
+        }
+    }
+</script>
+</body>
+</html>

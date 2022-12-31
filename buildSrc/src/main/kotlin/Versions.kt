@@ -3,7 +3,7 @@
  * @author <a href=mailto:mcxinyu@foxmail.com>yuefeng</a> in 2022/4/11.
  */
 object Versions {
-    const val coreLibVersion = "0.0.1"
+    const val coreLibVersion = "1.0.0"
     const val kotlinVersion = "1.7.21"
     const val gsonVersion = "2.9.0"
     const val okhttp3Version = "4.9.1"

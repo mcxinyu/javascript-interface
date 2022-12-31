@@ -1,7 +1,11 @@
+import org.jetbrains.dokka.DokkaConfiguration
+import org.jetbrains.dokka.GlobalDokkaConfiguration
+
 plugins {
     id("com.android.library")
     kotlin("android")
     id("maven-publish")
+    id("org.jetbrains.dokka")
 }
 
 android {
@@ -31,6 +35,11 @@ android {
     }
 }
 
+tasks.dokkaHtml.configure {
+    moduleName.set("javascript-interface")
+    outputDirectory.set(rootProject.projectDir.resolve("docs/api"))
+}
+
 group = "com.github.mcxinyu"
 version = Versions.coreLibVersion
 
@@ -46,6 +55,14 @@ afterEvaluate {
         }
     }
 }
+
+//dokkaHtml.configure {
+//    dokkaSourceSets {
+//        named("main") {
+//            noAndroidSdkLink.set(false)
+//        }
+//    }
+//}
 
 dependencies {
     compileOnly("androidx.core:core-ktx:1.9.0")

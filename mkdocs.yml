@@ -1,0 +1,30 @@
+site_name: Javascript Interface
+copyright: Copyright &copy; 2022 <a href="https://github.com/mcxinyu">mcxinyu</a>
+
+repo_name: Javascript Interface
+repo_url: https://github.com/mcxinyu/javascript-interface
+edit_uri: ""
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: iso_date
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mcxinyu
+
+nav:
+  - 介绍: index.md
+  - 文档: api/index.html

@@ -22,13 +22,13 @@ open class JavaScriptInterface(val interfaceName: String, private val onMessage:
      * 该方法暴露给 javaScript 调用。
      * 此时，javaScript 应用可以通过 [interfaceName] 访问 [JavaScriptInterface] 类。
      *
-     * 假如 [interfaceName] = Android
-     *```html
+     * 假如 [interfaceName] = `Android`
+     * ```html
      *  <input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
      *
      *  <script type="text/javascript">
      *      function showAndroidToast(toast) {
-     *          Android.postMessage(JSON.stringify(
+     *          window.Android.postMessage(JSON.stringify(
      *              {
      *                  func: 'showToast',
      *                  payload: toast
@@ -36,8 +36,21 @@ open class JavaScriptInterface(val interfaceName: String, private val onMessage:
      *          ));
      *      }
      *  </script>
-     *```
-     * 你甚至可以将处理后的数据直接返回给 JavaScript 调用方。
+     * ```
+     *
+     * 下面是 Android 实现并注入 `Android` 对象给 javaScript 调用
+     * ```kotlin
+     *  binding.webView.addJavascriptInterface(JavaScriptInterface("Android") {
+     *     val message = gson.fromJson(it, SampleMessage::class.java)
+     *
+     *     when (message.func) {
+     *         "showToast" -> toast(message.payload as? String)
+     *         // 你甚至可以将处理后的数据直接返回给 JavaScript 调用方。
+     *         "whatTimeIsIt" -> return@JavaScriptInterface dateFormat.format(Date())
+     *     }
+     *     return@JavaScriptInterface null
+     * })
+     * ```
      *
      * 注意：绑定到 JavaScript 的对象在另一个线程中运行，而不是在构造它的线程中运行。
      * 因此，[onMessage] 如果需要修改 UI，应该在主线程中运行。

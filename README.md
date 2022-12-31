@@ -2,6 +2,8 @@
 
 [![](https://jitpack.io/v/mcxinyu/javascript-interface.svg)](https://jitpack.io/#mcxinyu/javascript-interface)
 
+[项目首页](https://mcxinyu.github.io/javascript-interface)
+
 ## 使用
 发布在 [Jitpack javascript-interface](https://jitpack.io/#mcxinyu/javascript-interface)，简单配置即可使用。
 

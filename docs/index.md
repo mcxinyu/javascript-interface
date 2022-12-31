@@ -11,5 +11,5 @@ hide:
 
 可以参考 [MainActivity Demo](https://github.com/mcxinyu/javascript-interface/blob/b9e32fb8f0779a9a7442b0b313368cf5a73f997a/app/src/main/java/com/mcxinyu/jssample/MainActivity.kt)
 
-有关完整文档，请访问 [docs-api](/api/index.html)
+有关完整文档，请访问 [docs-api](https://www.nioleaf.com/javascript-interface/api/)
 

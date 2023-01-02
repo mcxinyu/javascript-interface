@@ -24,7 +24,7 @@ jobs:
               - 'tbsx5/src/main/java/**'
       - uses: gradle/gradle-build-action@v2
       - name: Build html
-        run: ./gradlew dokkaHtmlMultiModule --no-daemon --stacktrace
+        run: chmod +x gradlew &&./gradlew dokkaHtmlMultiModule --no-daemon --stacktrace
         if: steps.filter.outputs.changed == 'true'
       - name: copy html
         run: cp -r build/dokka/htmlMultiModule/ docs/api/

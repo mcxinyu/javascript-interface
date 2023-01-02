@@ -2,10 +2,9 @@ name: Release CI
 
 on:
   push:
-    paths:
-      paths-ignore:
-        - 'docs/**'
-        - 'mkdocs.yml'
+    paths-ignore:
+      - 'docs/**'
+      - 'mkdocs.yml'
     tags:
       - '*'
   workflow_dispatch:

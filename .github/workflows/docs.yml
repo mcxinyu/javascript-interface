@@ -2,6 +2,11 @@ name: docs
 
 on:
   push:
+    paths:
+      - 'docs/**'
+      - 'mkdocs.yml'
+      - 'core/src/main/java/**'
+      - 'tbsx5/src/main/java/**'
     branches:
       - master
       - main
@@ -43,4 +48,4 @@ jobs:
       - run: pip install jieba
       - run: pip install mkdocs-git-revision-date-localized-plugin
       - run: mkdocs gh-deploy --force
-        if: steps.filter2.outputs.changed == 'true' || steps.filter.outputs.changed == 'true'
+#        if: steps.filter2.outputs.changed == 'true' || steps.filter.outputs.changed == 'true'

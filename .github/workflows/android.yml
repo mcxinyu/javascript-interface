@@ -1,0 +1,30 @@
+name: Release CI
+
+on:
+  push:
+    tags:
+      - '*'
+  workflow_dispatch:
+    branches:
+      - 'master'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: echo info
+        run: echo 'https://jitpack.io/com/github/mcxinyu/javascript-interface/${{github.ref_name}}/javascript-interface-${{github.ref_name}}.pom'
+      - name: Build JitPack
+        uses: fjogeleit/http-request-action@v1.5.0
+        id: JitPack
+        with:
+          url: 'https://jitpack.io/com/github/mcxinyu/javascript-interface/${{github.ref_name}}/javascript-interface-${{github.ref_name}}.pom'
+          method: 'GET'
+          ignoreStatusCodes: 408
+          preventFailureOnNoResponse: true
+          timeout: 600000
+      - name: Show Response
+        run: echo ${{ steps.JitPack.outputs.response }}

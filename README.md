@@ -8,13 +8,13 @@
 发布在 [Jitpack javascript-interface](https://jitpack.io/#mcxinyu/javascript-interface)，简单配置即可使用。
 
 ```kotlin
-implementation("com.github.mcxinyu:javascript-interface:{{version}}")
+implementation("com.github.mcxinyu.javascript-interface:javascript-interface:{{version}}")
 ```
 
 支持 tbs-x5 浏览服务
 
 ```kotlin
-implementation("com.github.mcxinyu:javascript-interface-tbsx5:{{version}}")
+implementation("com.github.mcxinyu.javascript-interface:javascript-interface-tbsx5:{{version}}")
 ```
 
 ## 文档

@@ -12,4 +12,4 @@ import com.tencent.smtt.sdk.WebView
  * @author <a href=mailto:mcxinyu@foxmail.com>yuefeng</a> in 2023/1/2.
  */
 fun WebView.addJavascriptInterface(javaScriptInterface: JavaScriptInterface) =
-    addJavascriptInterface(javaScriptInterface, javaScriptInterface.interfaceName)
+    addJavascriptInterface(javaScriptInterface, javaScriptInterface.name)

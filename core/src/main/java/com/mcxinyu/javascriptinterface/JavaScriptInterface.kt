@@ -10,23 +10,23 @@ import java.io.Serializable
  *
  * 注意：绑定到 JavaScript 的对象在另一个线程中运行，而不是在构造它的线程中运行。
  *
- * @property interfaceName String. 这会为在 WebView 中运行的 JavaScript 创建名为 [interfaceName] 的接口。
+ * @property name String. 这会为在 WebView 中运行的 JavaScript 创建名为 [name] 的接口。
  * 使用 [addJavascriptInterface] 扩展方法，会自动向 WebView 注册此接口。
  * @property onMessage Function1<String, Unit>
  * @constructor
  * @author <a href=mailto:mcxinyu@foxmail.com>yuefeng</a> in 2022/3/24.
  */
 open class JavaScriptInterface(
-    val interfaceName: String,
+    val name: String,
     private val version: String? = null,
-    private val onMessage: (String?) -> String?
+    private val onMessage: (String) -> String?
 ) {
 
     /**
      * 该方法暴露给 javaScript 调用。
-     * 此时，javaScript 应用可以通过 [interfaceName] 访问 [JavaScriptInterface] 类。
+     * 此时，javaScript 应用可以通过 [name] 访问 [JavaScriptInterface] 类。
      *
-     * 假如 [interfaceName] = `Android`
+     * 假如 [name] = `Android`
      * ```html
      *  <input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
      *
@@ -64,7 +64,7 @@ open class JavaScriptInterface(
      */
     @JavascriptInterface
     @WorkerThread
-    open fun postMessage(message: String?): String? = onMessage.invoke(message)
+    open fun postMessage(message: String): String? = onMessage.invoke(message)
 
     /**
      * 用于区分接口版本，建议每次改动 [onMessage] 的实现都增加版本号
@@ -83,7 +83,7 @@ open class JavaScriptInterface(
  * @param javaScriptInterface [JavaScriptInterface]
  */
 fun WebView.addJavascriptInterface(javaScriptInterface: JavaScriptInterface) =
-    addJavascriptInterface(javaScriptInterface, javaScriptInterface.interfaceName)
+    addJavascriptInterface(javaScriptInterface, javaScriptInterface.name)
 
 /**
  * 一个消息传递的示例

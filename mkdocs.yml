@@ -21,6 +21,7 @@ plugins:
       type: iso_date
 
 extra:
+  generator: false
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/mcxinyu

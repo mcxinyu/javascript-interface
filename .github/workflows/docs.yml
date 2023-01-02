@@ -2,9 +2,6 @@ name: docs
 
 on:
   push:
-    paths:
-      - 'docs/**'
-      - 'mkdocs.yml'
     branches:
       - master
       - main
@@ -17,6 +14,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      # 判断 core、tbsx5 是否更新了
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            changed:
+              - 'core/src/main/java/**'
+              - 'tbsx5/src/main/java/**'
+      - uses: gradle/gradle-build-action@v2
+      - name: Build html
+        run: ./gradlew dokkaHtmlMultiModule --no-daemon --stacktrace
+        if: steps.filter.outputs.changed == 'true'
+      - name: copy html
+        run: cp -r build/dokka/htmlMultiModule/ docs/api/
+      # 判断文档是否更新了
+      - uses: dorny/paths-filter@v2
+        id: filter2
+        with:
+          filters: |
+            changed:
+              - 'docs/**'
+              - 'mkdocs.yml'
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
@@ -24,3 +43,4 @@ jobs:
       - run: pip install jieba
       - run: pip install mkdocs-git-revision-date-localized-plugin
       - run: mkdocs gh-deploy --force
+        if: steps.filter2.outputs.changed == 'true' || steps.filter.outputs.changed == 'true'

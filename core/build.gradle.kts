@@ -1,6 +1,3 @@
-import org.jetbrains.dokka.DokkaConfiguration
-import org.jetbrains.dokka.GlobalDokkaConfiguration
-
 plugins {
     id("com.android.library")
     kotlin("android")
@@ -35,10 +32,10 @@ android {
     }
 }
 
-tasks.dokkaHtml.configure {
-    moduleName.set("javascript-interface")
-    outputDirectory.set(rootProject.projectDir.resolve("docs/api"))
-}
+//tasks.dokkaHtml.configure {
+//    moduleName.set("javascript-interface")
+//    outputDirectory.set(rootProject.projectDir.resolve("docs/core"))
+//}
 
 group = "com.github.mcxinyu"
 version = Versions.coreLibVersion

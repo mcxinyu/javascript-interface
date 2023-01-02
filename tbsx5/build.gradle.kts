@@ -32,6 +32,11 @@ android {
     }
 }
 
+//tasks.dokkaHtml.configure {
+//    moduleName.set("javascript-interface-tbsx5")
+//    outputDirectory.set(rootProject.projectDir.resolve("docs/tbsx5"))
+//}
+
 group = "com.github.mcxinyu"
 version = Versions.coreLibVersion
 

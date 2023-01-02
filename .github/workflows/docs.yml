@@ -22,19 +22,10 @@ jobs:
             changed:
               - 'core/src/main/java/**'
               - 'tbsx5/src/main/java/**'
-#      - uses: gradle/gradle-build-action@v2
-      - name: Cache Gradle packages
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+      - uses: gradle/gradle-build-action@v2
       - name: Build html
         run: chmod +x gradlew &&./gradlew dokkaHtmlMultiModule --no-daemon --stacktrace
-        if: steps.filter.outputs.changed == 'true'
+#        if: steps.filter.outputs.changed == 'true'
       - name: copy html
         run: cp -r build/dokka/htmlMultiModule/ docs/api/
       # 判断文档是否更新了

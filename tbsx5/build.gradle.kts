@@ -35,6 +35,11 @@ android {
 group = "com.github.mcxinyu"
 version = Versions.coreLibVersion
 
+val sourcesJar by tasks.register<Jar>("sourcesJar"){
+    archiveClassifier.set("sources")
+    from(android.sourceSets.map { it.java.getSourceFiles() })
+}
+
 afterEvaluate {
     publishing {
         publications {
@@ -43,6 +48,8 @@ afterEvaluate {
 
                 groupId = "com.github.mcxinyu"
                 artifactId = "javascript-interface-tbsx5"
+
+                artifact(sourcesJar)
             }
         }
     }

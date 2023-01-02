@@ -16,7 +16,11 @@ import java.io.Serializable
  * @constructor
  * @author <a href=mailto:mcxinyu@foxmail.com>yuefeng</a> in 2022/3/24.
  */
-open class JavaScriptInterface(val interfaceName: String, private val onMessage: (String?) -> String?) {
+open class JavaScriptInterface(
+    val interfaceName: String,
+    private val version: String? = null,
+    private val onMessage: (String?) -> String?
+) {
 
     /**
      * 该方法暴露给 javaScript 调用。
@@ -69,7 +73,7 @@ open class JavaScriptInterface(val interfaceName: String, private val onMessage:
      */
     @JavascriptInterface
     @WorkerThread
-    open fun version(): String? = null
+    open fun version(): String? = version
 }
 
 /**

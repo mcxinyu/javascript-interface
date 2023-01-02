@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.settings.displayZoomControls = false
-        binding.webView.addJavascriptInterface(JavaScriptInterface("jsapi") {
+        binding.webView.addJavascriptInterface(JavaScriptInterface("jsapi", "1.0.0") {
             val message = gson.fromJson(it, SampleMessage::class.java)
 
             when (message.func) {

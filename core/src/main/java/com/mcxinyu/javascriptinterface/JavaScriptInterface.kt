@@ -61,6 +61,15 @@ open class JavaScriptInterface(val interfaceName: String, private val onMessage:
     @JavascriptInterface
     @WorkerThread
     open fun postMessage(message: String?): String? = onMessage.invoke(message)
+
+    /**
+     * 用于区分接口版本，建议每次改动 [onMessage] 的实现都增加版本号
+     *
+     * @return String?
+     */
+    @JavascriptInterface
+    @WorkerThread
+    open fun version(): String? = null
 }
 
 /**

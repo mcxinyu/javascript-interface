@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "javascript-interface"
 include(":app")
 include(":core")
+include(":tbsx5")

@@ -1,15 +1,12 @@
-import org.jetbrains.dokka.DokkaConfiguration
-import org.jetbrains.dokka.GlobalDokkaConfiguration
-
 plugins {
     id("com.android.library")
-    kotlin("android")
+    id("org.jetbrains.kotlin.android")
     id("maven-publish")
     id("org.jetbrains.dokka")
 }
 
 android {
-    namespace = "com.mcxinyu.javascriptinterface"
+    namespace = "com.mcxinyu.javascriptinterface.tbsx5"
     compileSdk = 33
 
     defaultConfig {
@@ -35,11 +32,6 @@ android {
     }
 }
 
-tasks.dokkaHtml.configure {
-    moduleName.set("javascript-interface")
-    outputDirectory.set(rootProject.projectDir.resolve("docs/api"))
-}
-
 group = "com.github.mcxinyu"
 version = Versions.coreLibVersion
 
@@ -50,7 +42,7 @@ afterEvaluate {
                 from(components["release"])
 
                 groupId = "com.github.mcxinyu"
-                artifactId = "javascript-interface"
+                artifactId = "javascript-interface-tbsx5"
             }
         }
     }
@@ -63,4 +55,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.4")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
+
+    compileOnly("com.tencent.tbs:tbssdk:44226")
+    compileOnly(project(":core"))
 }

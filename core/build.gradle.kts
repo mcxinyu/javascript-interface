@@ -43,6 +43,11 @@ tasks.dokkaHtml.configure {
 group = "com.github.mcxinyu"
 version = Versions.coreLibVersion
 
+tasks.register<Jar>("sourcesJar"){
+    archiveClassifier.set("sources")
+    from(android.sourceSets.map { it.java.getSourceFiles() })
+}
+
 afterEvaluate {
     publishing {
         publications {
@@ -51,6 +56,8 @@ afterEvaluate {
 
                 groupId = "com.github.mcxinyu"
                 artifactId = "javascript-interface"
+
+                artifact(tasks["sourcesJar"])
             }
         }
     }

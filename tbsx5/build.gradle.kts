@@ -64,10 +64,6 @@ dependencies {
     compileOnly("androidx.core:core-ktx:1.9.0")
     compileOnly("androidx.appcompat:appcompat:1.5.1")
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.4")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
-
     compileOnly("com.tencent.tbs:tbssdk:44226")
     compileOnly(project(":core"))
 }

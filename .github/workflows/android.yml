@@ -7,9 +7,10 @@ on:
       - 'mkdocs.yml'
     tags:
       - '*'
+      - '!docs*'
   workflow_dispatch:
     branches:
-      - 'master'
+      - 'main'
 
 jobs:
   build:

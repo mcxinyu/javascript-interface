@@ -1,0 +1,27 @@
+$dokka.format:gfm-v1
+$dokka.linkExtension:md
+$dokka.location:com.mcxinyu.javascriptinterface.tbsx5////PointingToDeclaration/tbsx5/tbsx5/com.mcxinyu.javascriptinterface.tbsx5/index.md
+$dokka.location:com.mcxinyu.javascriptinterface.tbsx5//addJavascriptInterface/com.tencent.smtt.sdk.WebView#com.mcxinyu.javascriptinterface.JavaScriptInterface/PointingToDeclaration/tbsx5/tbsx5/com.mcxinyu.javascriptinterface.tbsx5/add-javascript-interface.md
+$dokka.location:com.mcxinyu.javascriptinterface.tbsx5//evaluate/com.tencent.smtt.sdk.WebView#kotlin.String/PointingToDeclaration/tbsx5/tbsx5/com.mcxinyu.javascriptinterface.tbsx5/evaluate.md
+$dokka.location:com.mcxinyu.javascriptinterface.tbsx5//evaluateScript/com.tencent.smtt.sdk.WebView#kotlin.String#kotlin.Function1[kotlin.String?,kotlin.Unit]?/PointingToDeclaration/tbsx5/tbsx5/com.mcxinyu.javascriptinterface.tbsx5/evaluate-script.md
+$dokka.location:com.mcxinyu.javascriptinterface////PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/index.md
+$dokka.location:com.mcxinyu.javascriptinterface//addJavascriptInterface/android.webkit.WebView#com.mcxinyu.javascriptinterface.JavaScriptInterface/PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/add-javascript-interface.md
+$dokka.location:com.mcxinyu.javascriptinterface//evaluate/android.webkit.WebView#kotlin.String/PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/evaluate.md
+$dokka.location:com.mcxinyu.javascriptinterface//evaluateScript/android.webkit.WebView#kotlin.String#kotlin.Function1[kotlin.String?,kotlin.Unit]?/PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/evaluate-script.md
+$dokka.location:com.mcxinyu.javascriptinterface/JavaScriptInterface///PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/-java-script-interface/index.md
+$dokka.location:com.mcxinyu.javascriptinterface/JavaScriptInterface/JavaScriptInterface/#kotlin.String#kotlin.String?#kotlin.Function1[kotlin.String,kotlin.String?]/PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/-java-script-interface/-java-script-interface.md
+$dokka.location:com.mcxinyu.javascriptinterface/JavaScriptInterface/name/#/PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/-java-script-interface/name.md
+$dokka.location:com.mcxinyu.javascriptinterface/JavaScriptInterface/postMessage/#kotlin.String/PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/-java-script-interface/post-message.md
+$dokka.location:com.mcxinyu.javascriptinterface/JavaScriptInterface/version/#/PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/-java-script-interface/version.md
+$dokka.location:com.mcxinyu.javascriptinterface/SampleMessage///PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/-sample-message/index.md
+$dokka.location:com.mcxinyu.javascriptinterface/SampleMessage/SampleMessage/#kotlin.String#TypeParam(bounds=[java.io.Serializable])?/PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/-sample-message/-sample-message.md
+$dokka.location:com.mcxinyu.javascriptinterface/SampleMessage/func/#/PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/-sample-message/func.md
+$dokka.location:com.mcxinyu.javascriptinterface/SampleMessage/payload/#/PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/-sample-message/payload.md
+$dokka.location:com.mcxinyu.javascriptinterface/SamplePayload///PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/-sample-payload/index.md
+$dokka.location:com.mcxinyu.javascriptinterface/SamplePayload/SamplePayload/#kotlin.String?#kotlin.String?/PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/-sample-payload/-sample-payload.md
+$dokka.location:com.mcxinyu.javascriptinterface/SamplePayload/onFailure/#/PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/-sample-payload/on-failure.md
+$dokka.location:com.mcxinyu.javascriptinterface/SamplePayload/onSuccess/#/PointingToDeclaration/core/core/com.mcxinyu.javascriptinterface/-sample-payload/on-success.md
+module:core
+com.mcxinyu.javascriptinterface
+module:tbsx5
+com.mcxinyu.javascriptinterface.tbsx5

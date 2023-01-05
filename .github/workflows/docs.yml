@@ -2,14 +2,18 @@ name: docs
 
 on:
   push:
-    paths:
-      - 'docs/**'
-      - 'mkdocs.yml'
-      - 'core/src/main/java/**'
-      - 'tbsx5/src/main/java/**'
+    tags:
+      - 'docs-*'
+  #    paths:
+  #      - '.github/workflows/docs.yml'
+  #      - 'docs/**'
+  #      - 'mkdocs.yml'
+  #      - 'core/src/main/java/**'
+  #      - 'tbsx5/src/main/java/**'
+  workflow_dispatch:
     branches:
-      - master
-      - main
+      - 'master'
+      - 'main'
 
 permissions:
   contents: write
@@ -19,33 +23,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      # 判断 core、tbsx5 是否更新了
-      - uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          filters: |
-            changed:
-              - 'core/src/main/java/**'
-              - 'tbsx5/src/main/java/**'
       - uses: gradle/gradle-build-action@v2
-      - name: Build html
-        run: chmod +x gradlew &&./gradlew dokkaHtmlMultiModule --no-daemon --stacktrace
-#        if: steps.filter.outputs.changed == 'true'
-      - name: copy html
-        run: cp -r build/dokka/htmlMultiModule/ docs/api/
-      # 判断文档是否更新了
-      - uses: dorny/paths-filter@v2
-        id: filter2
-        with:
-          filters: |
-            changed:
-              - 'docs/**'
-              - 'mkdocs.yml'
+      - name: Build dokka
+        run: chmod +x gradlew &&./gradlew dokkaGfmMultiModule --no-daemon --stacktrace
+      - name: copy dokka
+        run: cp -r build/dokka/gfmMultiModule/ docs/api/
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - run: pip install mkdocs-material
-      - run: pip install jieba
-      - run: pip install mkdocs-git-revision-date-localized-plugin
-      - run: mkdocs gh-deploy --force
-#        if: steps.filter2.outputs.changed == 'true' || steps.filter.outputs.changed == 'true'
+      - run: |
+          pip install mkdocs-material=="9.*"
+          pip install jieba
+          pip install mkdocs-git-revision-date-localized-plugin
+          pip install mike
+          git config user.name yuefeng
+          git config user.email mcxinyu@foxmail.com
+#      - run: mkdocs gh-deploy --force
+      - uses: olegtarasov/get-tag@v2.1.2
+        id: tag_name
+        with:
+          tagRegex: "docs-(.*)"
+          tagRegexGroup: 1
+      - run: |
+          echo tag = ${{ steps.tag_name.outputs.tag }}
+          echo version2 ${{ github.ref }}
+      - run: |
+          mike deploy --push -u ${{ steps.tag_name.outputs.tag }} latest
+          mike list

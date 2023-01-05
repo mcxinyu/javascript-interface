@@ -14,3 +14,4 @@ local.properties
 /buildSrc/build/classes/kotlin/main/
 
 site/
+docs/api

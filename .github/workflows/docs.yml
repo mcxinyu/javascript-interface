@@ -47,8 +47,6 @@ jobs:
           tagRegex: "docs-(.*)"
           tagRegexGroup: 1
       - run: |
-          echo tag = ${{ steps.tag_name.outputs.tag }}
-          echo version2 ${{ github.ref }}
-      - run: |
           mike deploy --push -u ${{ steps.tag_name.outputs.tag }} latest
+          mike set-default latest
           mike list

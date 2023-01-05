@@ -48,5 +48,5 @@ jobs:
           tagRegexGroup: 1
       - run: |
           mike deploy --push -u ${{ steps.tag_name.outputs.tag }} latest
-          mike set-default latest
+          mike set-default --push latest
           mike list

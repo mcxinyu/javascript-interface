@@ -57,6 +57,12 @@ afterEvaluate {
                 artifact(sourcesJar)
             }
         }
+        repositories {
+            maven {
+                name = "XXX"
+                url = uri("${project.buildDir}/repo")
+            }
+        }
     }
 }
 

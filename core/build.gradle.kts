@@ -23,13 +23,6 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 }
 
 //tasks.dokkaHtml.configure {
@@ -55,6 +48,12 @@ afterEvaluate {
                 artifactId = "javascript-interface"
 
                 artifact(sourcesJar)
+            }
+        }
+        repositories {
+            maven {
+                name = "XXX"
+                url = uri("${project.buildDir}/repo")
             }
         }
     }
